@@ -137,7 +137,9 @@ void GenerateBall() {
 
 void RenderSnake() {
 	POSCursor(SnakePOSbuffer[SnakeLength][0], SnakePOSbuffer[SnakeLength][1]);
-	printf(" ");
+	if (SnakePOSbuffer[SnakeLength][0] != 0 && SnakePOSbuffer[SnakeLength][1] != 0) {
+		printf(" ");
+	}
 	POSCursor(SnakeX, SnakeY);
 	printf("#");	
 	SnakePOSbuffer[0][0] = SnakeX;
@@ -215,11 +217,11 @@ void DifficultySelect() {
 }
 
 void GameOver() {
-	POSCursor(30, 13);
+	POSCursor(35, 17);
 	printf("Game Over!");
-	POSCursor(27, 15);
+	POSCursor(32, 19);
 	printf("Your Score : %d", Score);
-	POSCursor(14, 17);
+	POSCursor(20, 21);
 	printf("Press Minus to exit or A to restart the game");
 	while (true) {
 		padUpdate(&pad);
@@ -301,9 +303,9 @@ void Pause() {
 	Mix_Music *pause = Mix_LoadMUS("romfs:/pause.mp3");
 	Mix_Music *resume = Mix_LoadMUS("romfs:/resume.mp3");
 	printf("\x1b[2J");
-	POSCursor(30, 10);
+	POSCursor(35, 20);
 	printf("Paused!");
-	POSCursor(25, 12);
+	POSCursor(30, 22);
 	printf("Press + to resume...");
 	Mix_PlayMusic(pause, 1);
 	while (1) {
@@ -356,8 +358,26 @@ int main(int argc, char* argv[]) {
 	srand(time(NULL));
 	SystemInit();
 	printf("\x1b[2J");
-	printf("SnakeNX\nMade By Abdelali221\nGithub : https://github.com/abdelali221/\n");
-	printf("\nPress A to start...");
+	POSCursor(10, 12);
+	printf(" #####  #     #    #    #    # #######    #     # #     #\n");
+	POSCursor(10, 13);
+	printf("#     # ##    #  #   #  #   #  #          ##    #  #   # \n");
+	POSCursor(10, 14);
+	printf("#       # #   # #     # #  #   #          # #   #   # #  \n");
+	POSCursor(10, 15);
+	printf(" #####  #  #  # #     # ###    #####      #  #  #    #   \n");
+	POSCursor(10, 16);
+	printf("      # #   # # ####### #  #   #          #   # #   # #  \n");
+	POSCursor(10, 17);
+	printf("#     # #    ## #     # #   #  #          #    ##  #   # \n");
+	POSCursor(10, 18);
+	printf(" #####  #     # #     # #    # #######    #     # #     #\n");
+	POSCursor(25, 30);
+	printf("Made By Abdelali221");
+	POSCursor(15, 32);
+	printf("Github : https://github.com/abdelali221/");
+	POSCursor(25, 34);
+	printf("Press A to start...");
 
 	while(!Resume) {
 		padUpdate(&pad);

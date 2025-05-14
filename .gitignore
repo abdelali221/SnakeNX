@@ -5,3 +5,6 @@ build/SnakeNX.map
 SnakeNX.nro
 SnakeNX.nro
 *.nro
+SnakeNX.elf
+SnakeNX.nro
+SnakeNX.nacp
