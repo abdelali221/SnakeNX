@@ -1,0 +1,7 @@
+build/main.o
+build/main.d
+build/SnakeNX.lst
+build/SnakeNX.map
+SnakeNX.nro
+SnakeNX.nro
+*.nro

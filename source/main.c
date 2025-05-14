@@ -123,9 +123,9 @@ void RenderBorders(bool DELAY, bool PLAYSOUND) {
 
 void GenerateBall() {
 	for (size_t i = 1; i <= SnakeLength; i++) {
-		while (BallX < HOR_OFFSET + 1 || BallX > COLS || BallY < VER_OFFSET + 1 || BallY > ROWS || (BallX == SnakePOSbuffer[i][0] && BallY == SnakePOSbuffer[i][1]) || (BallX == ANSBallX && BallY == ANSBallY)) {
+		while (BallX < HOR_OFFSET + 1 || BallX > COLS || BallY < VER_OFFSET + 2 || BallY > ROWS || (BallX == SnakePOSbuffer[i][0] && BallY == SnakePOSbuffer[i][1]) || (BallX == ANSBallX && BallY == ANSBallY)) {
 			BallX = HOR_OFFSET + 1 + rand() % (COLS - HOR_OFFSET - 1);
-			BallY = VER_OFFSET + 1 + rand() % (ROWS - VER_OFFSET - 1);
+			BallY = VER_OFFSET + 2 + rand() % (ROWS - VER_OFFSET - 1);
 		}
 	}
 	BallEaten = false;
@@ -268,7 +268,7 @@ void Loose() {
 
 void ManageSnakePos() {
 	CheckController();
-	if (SnakeX < HOR_OFFSET + 1 || SnakeX > COLS - 1 || SnakeY < VER_OFFSET + 1 || SnakeY > ROWS - 1) {
+	if (SnakeX < HOR_OFFSET + 2 || SnakeX > COLS - 1 || SnakeY < VER_OFFSET + 2 || SnakeY > ROWS - 1) {
 		Loose();
 	}
 	if (SnakeLength > 4) {
